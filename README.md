@@ -1,6 +1,7 @@
 # NovaFlow: Zero-Shot Manipulation via Actionable Flow from Generated Videos
 
-**Authors:** [Hongyu Li*](https://lhy.xyz/), [Lingfeng Sun*](https://lingfeng.moe/), [Yafei Hu](https://jeffreyyh.github.io/), [Duy Ta](https://www.linkedin.com/in/duynguyen-ta), [Jennifer Barry](https://www.linkedin.com/in/jennifer-barry-742a0799/), [George Konidaris](https://cs.brown.edu/people/gdk/), [Jiahui Fu](https://scholar.google.com/citations?user=-FqjG8kAAAAJ&hl=en&oi=ao)  
+**Authors:** [Hongyu Li*](https://lhy.xyz/), [Lingfeng Sun*](https://lingfeng.moe/), [Yafei Hu](https://jeffreyyh.github.io/), [Duy Ta](https://www.linkedin.com/in/duynguyen-ta), [Jennifer Barry](https://www.linkedin.com/in/jennifer-barry-742a0799/), [George Konidaris](https://cs.brown.edu/people/gdk/), [Jiahui Fu](https://jiahui-fu.github.io/) 
+
 **Affiliations:** Robotics and AI Institute, Brown University  
 **\*Equal contribution**
 
