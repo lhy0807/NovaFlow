@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+*.egg
+
+# Model weights & checkpoints
+*.pth
+*.pt
+*.bin
+*.safetensors
+*.ckpt
+
+# C/C++ build artifacts (compiled in Docker)
+*.o
+*.so
+*.a
+*.dylib
+
+# Outputs
+server/server_outputs/
+server/checkpoints/
+server/third_party/
+client/demo_data/*/
+client/wandb/
+
+# Temp files
+tmp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Wandb
+wandb/
+
+# Vendored deps: non-essential files (demos, notebooks, assets, C++ source)
+server/grounded_sam_2/notebooks/
+server/grounded_sam_2/assets/
+server/grounded_sam_2/demo/
+server/grounded_sam_2/demo_images/
+server/grounded_sam_2/sav_dataset/
+server/tapip3d/third_party/megasam/base/
+server/tapip3d/third_party/megasam/checkpoints/
+server/tapip3d/third_party/megasam/Depth-Anything/checkpoints/
+server/tapip3d/third_party/pointops2/
+server/tapip3d/checkpoints/
+server/tapip3d/configs/
+server/tapip3d/scripts/
+server/tapip3d/evaluation/
+server/SpaTrackerV2/assets/
+server/grounded_sam_2/grounding_dino/.asset/
+server/grounded_sam_2/grounding_dino/demo/
+server/grounded_sam_2/grounding_dino/*.ipynb
+server/wan2.1/assets/
+*.ipynb

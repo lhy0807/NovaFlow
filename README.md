@@ -39,52 +39,55 @@ Enabling robots to execute novel manipulation tasks zero-shot is a central goal 
 
 1. **Clone the repository**:
    ```bash
-   git clone --recursive https://github.com/holi-rai/novaflow-private.git
+   git clone https://github.com/holi-rai/novaflow-private.git
    cd novaflow-private
    ```
 
-2. **Setup environment**:
-   ```bash
-   # Option 1: Using Docker (Recommended)
-   docker pull us-docker.pkg.dev/engineering-380817/bdai/holi_gizmo:main
+   The dependency repos (`tapip3d`, `grounded_sam_2`, `wan2.1`) are vendored under `server/`.
 
-   # Option 2: Local Docker build
+2. **Build and enter Docker**:
+   ```bash
    cd server/docker
    docker build -t novaflow .
+   cd ../..
+
+   # Run the container with the repo mounted
+   docker run -it --gpus all -v $(pwd):/workspace novaflow bash
    ```
 
-3. **Download model weights**:
+3. **Download model weights** (inside Docker):
    ```bash
-   cd server
+   cd /workspace/server
    ./download_weights.sh
    ```
 
-4. **Start the server**:
-   To use prompt extention, you should set `GOOGLE_API_KEY` to your Google API key.
+4. **Start the server** (inside Docker):
+
+   To use prompt extension, set `GOOGLE_API_KEY` to your Google API key.
 
    <details>
-   <summary><b>Option 1: Using Wan (Default)</b></summary>
+   <summary><b>Using Wan (Default, requires A100/H100)</b></summary>
 
    ```bash
-   cd server
+   cd /workspace/server
    ./start_ray_server.sh
    ```
    </details>
 
    <details>
-   <summary><b>Option 2: Using Veo (Recommended for GPUs < A100/H100)</b></summary>
+   <summary><b>Using Veo (Recommended for GPUs < A100/H100)</b></summary>
 
    ```bash
    export GOOGLE_API_KEY="your_api_key_here"
-   cd server
+   cd /workspace/server
    ./start_ray_server.sh --model veo
    ```
    </details>
 
-5. **Run your first job**:
+5. **Run your first job** (from a separate terminal on the host):
 
    <details>
-   <summary><b>Option 1: Using Wan (Default)</b></summary>
+   <summary><b>Using Wan (Default)</b></summary>
 
    ```bash
    cd client
@@ -93,7 +96,7 @@ Enabling robots to execute novel manipulation tasks zero-shot is a central goal 
    </details>
 
    <details>
-   <summary><b>Option 2: Using Veo (Recommended for GPUs < A100/H100)</b></summary>
+   <summary><b>Using Veo (Recommended for GPUs < A100/H100)</b></summary>
 
    ```bash
    cd client

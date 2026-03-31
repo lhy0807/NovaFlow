@@ -328,8 +328,8 @@ class UnifiedGPUWorker:
             import os
             original_cwd = os.getcwd()
             os.chdir(os.path.join(current_dir, 'tapip3d'))
-            
-            # Import Tapip3D modules using explicit package path
+
+            # Import Tapip3D modules
             from tapip3d.utils.inference_utils import load_model
             from tapip3d.annotation.megasam import MegaSAMAnnotator
             
@@ -857,7 +857,7 @@ class UnifiedGPUWorker:
             if tapip3d_path not in sys.path:
                 sys.path.insert(0, tapip3d_path)
             
-            # Import Tapip3D inference functions using explicit package path
+            # Import Tapip3D inference functions
             from tapip3d.utils.inference_utils import inference, read_video, get_grid_queries, resize_depth_bilinear
             from tapip3d.datasets.data_ops import _filter_one_depth
             from einops import repeat

@@ -1,10 +1,16 @@
-#!/bin/bash
+#!/bin/bash --login
+set -e
 
-# make sure you are in gizmo conda environment
+conda activate gizmo
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+pip install gdown
+
 cd wan2.1
 # download the Wan2.1 I2V and FLF2V weights
-huggingface-cli download Wan-AI/Wan2.1-I2V-14B-720P --local-dir ./Wan2.1-I2V-14B-720P
-huggingface-cli download Wan-AI/Wan2.1-FLF2V-14B-720P --local-dir ./Wan2.1-FLF2V-14B-720P
+hf download Wan-AI/Wan2.1-I2V-14B-720P --local-dir ./Wan2.1-I2V-14B-720P
+hf download Wan-AI/Wan2.1-FLF2V-14B-720P --local-dir ./Wan2.1-FLF2V-14B-720P
 
 cd ../tapip3d
 mkdir -p checkpoints
@@ -19,6 +25,7 @@ cd ../../../
 cd ../grounded_sam_2
 cd checkpoints
 bash download_ckpts.sh
-cd ../gdino_checkpoints
+cd ..
+cd gdino_checkpoints
 bash download_ckpts.sh
-cd ../../
+cd ../..
