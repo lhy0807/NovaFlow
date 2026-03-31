@@ -1,10 +1,9 @@
-# NovaFlow: Zero-Shot Manipulation via Actionable Flow from Generated Videos
+# [ICRA 2026] NovaFlow: Zero-Shot Manipulation via Actionable Flow from Generated Videos
 
 **Authors:** [Hongyu Li*](https://lhy.xyz/), [Lingfeng Sun*](https://lingfeng.moe/), [Yafei Hu](https://jeffreyyh.github.io/), [Duy Ta](https://www.linkedin.com/in/duynguyen-ta), [Jennifer Barry](https://www.linkedin.com/in/jennifer-barry-742a0799/), [George Konidaris](https://cs.brown.edu/people/gdk/), [Jiahui Fu](https://jiahui-fu.github.io/) 
 
 **Affiliations:** Robotics and AI Institute, Brown University  
 **\*Equal contribution**
-
 <a href="https://arxiv.org/abs/2510.08568"><img src='https://img.shields.io/badge/arXiv-NovaFlow-red' alt='Paper PDF'></a>
 <a href='https://novaflow.lhy.xyz'><img src='https://img.shields.io/badge/Project_Page-NovaFlow-green' alt='Project Page'></a>
 <a href='https://novaflow.lhy.xyz'><img src='https://img.shields.io/badge/Interactive_Viewer-NovaFlow-blue' alt='Interactive Viewer'></a>
@@ -39,52 +38,55 @@ Enabling robots to execute novel manipulation tasks zero-shot is a central goal 
 
 1. **Clone the repository**:
    ```bash
-   git clone --recursive https://github.com/holi-rai/novaflow-private.git
-   cd novaflow-private
+   git clone https://github.com/bdaiinstitute/NovaFlow.git
+   cd NovaFlow
    ```
 
-2. **Setup environment**:
-   ```bash
-   # Option 1: Using Docker (Recommended)
-   docker pull us-docker.pkg.dev/engineering-380817/bdai/holi_gizmo:main
+   The dependency repos (`tapip3d`, `grounded_sam_2`, `wan2.1`) are vendored under `server/`.
 
-   # Option 2: Local Docker build
+2. **Build and enter Docker**:
+   ```bash
    cd server/docker
    docker build -t novaflow .
+   cd ../..
+
+   # Run the container with the repo mounted
+   docker run -it --gpus all -v $(pwd):/workspace novaflow bash
    ```
 
-3. **Download model weights**:
+3. **Download model weights** (inside Docker):
    ```bash
-   cd server
+   cd /workspace/server
    ./download_weights.sh
    ```
 
-4. **Start the server**:
-   To use prompt extention, you should set `GOOGLE_API_KEY` to your Google API key.
+4. **Start the server** (inside Docker):
+
+   To use prompt extension, set `GOOGLE_API_KEY` to your Google API key.
 
    <details>
-   <summary><b>Option 1: Using Wan (Default)</b></summary>
+   <summary><b>Using Wan (Default, requires A100/H100)</b></summary>
 
    ```bash
-   cd server
+   cd /workspace/server
    ./start_ray_server.sh
    ```
    </details>
 
    <details>
-   <summary><b>Option 2: Using Veo (Recommended for GPUs < A100/H100)</b></summary>
+   <summary><b>Using Veo (Recommended for GPUs < A100/H100)</b></summary>
 
    ```bash
    export GOOGLE_API_KEY="your_api_key_here"
-   cd server
+   cd /workspace/server
    ./start_ray_server.sh --model veo
    ```
    </details>
 
-5. **Run your first job**:
+5. **Run your first job** (from a separate terminal on the host):
 
    <details>
-   <summary><b>Option 1: Using Wan (Default)</b></summary>
+   <summary><b>Using Wan (Default)</b></summary>
 
    ```bash
    cd client
@@ -93,7 +95,7 @@ Enabling robots to execute novel manipulation tasks zero-shot is a central goal 
    </details>
 
    <details>
-   <summary><b>Option 2: Using Veo (Recommended for GPUs < A100/H100)</b></summary>
+   <summary><b>Using Veo (Recommended for GPUs < A100/H100)</b></summary>
 
    ```bash
    cd client
@@ -140,7 +142,7 @@ Converts 3D flow into precise robot trajectories:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the RAI License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 

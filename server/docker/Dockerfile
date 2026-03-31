@@ -28,7 +28,7 @@ RUN source ~/.bashrc && \
 RUN echo "conda activate gizmo" >> ~/.bashrc
 
 RUN conda activate gizmo &&\
-    pip install torch==2.4.1
+    pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cu124
 RUN conda activate gizmo &&\
     conda install ninja &&\
     MAX_JOBS=8 pip install flash-attn --no-build-isolation
@@ -42,9 +42,9 @@ ENV TORCH_CUDA_ARCH_LIST="8.0 8.6 8.9 9.0"
 
 # install tapip3d
 RUN conda activate gizmo &&\
-    pip install torch-scatter -f https://data.pyg.org/whl/torch-2.4.1+cu126.html
+    pip install torch-scatter -f https://data.pyg.org/whl/torch-2.4.1+cu124.html
 RUN conda activate gizmo &&\
-    pip install xformers>=0.0.27 torch==2.4.1
+    pip install xformers>=0.0.27 torch==2.4.1 --index-url https://download.pytorch.org/whl/cu124
 
 
 RUN cd /tmp && \

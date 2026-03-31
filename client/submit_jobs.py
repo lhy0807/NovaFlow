@@ -43,7 +43,7 @@ class RunJobSubmitter:
                     'seed': seed,
                     'status': 'success',
                     'duration': duration,
-                    'output_dir': f"./client_outputs/{seed}",
+                    'output_dir': f"./demo_data/{seed}",
                     'stdout': result.stdout,
                     'stderr': result.stderr
                 }
@@ -53,7 +53,7 @@ class RunJobSubmitter:
                     'seed': seed,
                     'status': 'failed',
                     'duration': duration,
-                    'output_dir': f"./client_outputs/{seed}",
+                    'output_dir': f"./demo_data/{seed}",
                     'stdout': result.stdout,
                     'stderr': result.stderr,
                     'returncode': result.returncode
@@ -65,7 +65,7 @@ class RunJobSubmitter:
                 'seed': seed,
                 'status': 'timeout',
                 'duration': 3600,
-                'output_dir': f"./client_outputs/{seed}",
+                'output_dir': f"./demo_data/{seed}",
                 'error': 'Timeout after 3600 seconds'
             }
         except Exception as e:
@@ -74,7 +74,7 @@ class RunJobSubmitter:
                 'seed': seed,
                 'status': 'crashed',
                 'duration': time.time() - start_time,
-                'output_dir': f"./client_outputs/{seed}",
+                'output_dir': f"./demo_data/{seed}",
                 'error': str(e)
             }
     
@@ -85,7 +85,7 @@ class RunJobSubmitter:
 
         print(f"🔥 Starting job submission with {num_jobs} jobs...")
         print(f"🌱 Base seed: {base_seed}")
-        print(f"📁 Output directory: ./client_outputs/<seed>")
+        print(f"📁 Output directory: ./demo_data/<seed>")
         print(f"⚡ Max concurrent workers: {max_workers}")
         print(f"🎬 Use Veo: {use_veo}")
         print("🚀 Submitting all jobs immediately for concurrent execution")
