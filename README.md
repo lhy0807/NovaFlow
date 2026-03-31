@@ -1,10 +1,9 @@
-# NovaFlow: Zero-Shot Manipulation via Actionable Flow from Generated Videos
+# [ICRA 2026] NovaFlow: Zero-Shot Manipulation via Actionable Flow from Generated Videos
 
 **Authors:** [Hongyu Li*](https://lhy.xyz/), [Lingfeng Sun*](https://lingfeng.moe/), [Yafei Hu](https://jeffreyyh.github.io/), [Duy Ta](https://www.linkedin.com/in/duynguyen-ta), [Jennifer Barry](https://www.linkedin.com/in/jennifer-barry-742a0799/), [George Konidaris](https://cs.brown.edu/people/gdk/), [Jiahui Fu](https://jiahui-fu.github.io/) 
 
 **Affiliations:** Robotics and AI Institute, Brown University  
 **\*Equal contribution**
-
 <a href="https://arxiv.org/abs/2510.08568"><img src='https://img.shields.io/badge/arXiv-NovaFlow-red' alt='Paper PDF'></a>
 <a href='https://novaflow.lhy.xyz'><img src='https://img.shields.io/badge/Project_Page-NovaFlow-green' alt='Project Page'></a>
 <a href='https://novaflow.lhy.xyz'><img src='https://img.shields.io/badge/Interactive_Viewer-NovaFlow-blue' alt='Interactive Viewer'></a>
@@ -143,7 +142,7 @@ Converts 3D flow into precise robot trajectories:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the RAI License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
