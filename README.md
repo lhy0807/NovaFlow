@@ -39,8 +39,8 @@ Enabling robots to execute novel manipulation tasks zero-shot is a central goal 
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/holi-rai/novaflow-private.git
-   cd novaflow-private
+   git clone https://github.com/bdaiinstitute/NovaFlow.git
+   cd NovaFlow
    ```
 
    The dependency repos (`tapip3d`, `grounded_sam_2`, `wan2.1`) are vendored under `server/`.
