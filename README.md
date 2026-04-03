@@ -45,6 +45,13 @@ Enabling robots to execute novel manipulation tasks zero-shot is a central goal 
    The dependency repos (`tapip3d`, `grounded_sam_2`, `wan2.1`) are vendored under `server/`.
 
 2. **Build and enter Docker**:
+   You can pull our built Docker image
+   ```bash
+   docker pull lhy0807/novaflow
+   docker tag lhy0807/novaflow novaflow
+   ```
+
+   or build by yourself:
    ```bash
    cd server/docker
    docker build -t novaflow .
@@ -54,13 +61,13 @@ Enabling robots to execute novel manipulation tasks zero-shot is a central goal 
    docker run -it --gpus all -v $(pwd):/workspace novaflow bash
    ```
 
-3. **Download model weights** (inside Docker):
+4. **Download model weights** (inside Docker):
    ```bash
    cd /workspace/server
    ./download_weights.sh
    ```
 
-4. **Start the server** (inside Docker):
+5. **Start the server** (inside Docker):
 
    To use prompt extension, set `GOOGLE_API_KEY` to your Google API key.
 
@@ -83,7 +90,7 @@ Enabling robots to execute novel manipulation tasks zero-shot is a central goal 
    ```
    </details>
 
-5. **Run your first job** (from a separate terminal on the host):
+6. **Run your first job** (from a separate terminal on the host):
 
    <details>
    <summary><b>Using Wan (Default)</b></summary>
